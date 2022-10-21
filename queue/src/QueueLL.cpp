@@ -1,23 +1,23 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "Queue_LL.h"
+#include "QueueLL.h"
 
-Queue::Queue() : Head{nullptr}, Tail{nullptr}
+QueueLL::QueueLL() : Head{nullptr}, Tail{nullptr}
 {
 }
 
-Queue::Queue(int value) : Head{nullptr}, Tail{nullptr}
+QueueLL::QueueLL(int value) : Head{nullptr}, Tail{nullptr}
 {
 	init(value);
 }
 
-Queue::~Queue()
+QueueLL::~QueueLL()
 {
 	clear();
 }
 
-void Queue::init(int value)
+void QueueLL::init(int value)
 {
 	Node* newNode = new Node;
 	newNode->data = value;
@@ -25,7 +25,7 @@ void Queue::init(int value)
 	Head = Tail = newNode;
 }
 
-void Queue::enqueue(int value)
+void QueueLL::enqueue(int value)
 {
 	if(empty())
 		init(value);
@@ -38,7 +38,7 @@ void Queue::enqueue(int value)
 	}
 }
 
-int Queue::dequeue()
+int QueueLL::dequeue()
 {
 	if(empty())
 		throw std::out_of_range("The queue is empty");
@@ -51,13 +51,13 @@ int Queue::dequeue()
 	return value;
 }
 
-bool Queue::empty()
+bool QueueLL::empty()
 {
 	return !Head;
 }
 
 
-void Queue::clear()
+void QueueLL::clear()
 {
 	Node* tmp = nullptr;
 	while(Head){
@@ -68,14 +68,14 @@ void Queue::clear()
 	Tail = nullptr;
 }
 
-int Queue::peek()
+int QueueLL::peek()
 {
 	if(empty())
-		throw std::out_of_range("Queue is empty");
+		throw std::out_of_range("QueueLL is empty");
 	return Head->data;
 }
 
-void Queue::printData()
+void QueueLL::printData()
 {
 	Node* trav = Head;
 	while(trav){

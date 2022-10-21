@@ -5,16 +5,16 @@ struct Node
 };
 
 
-class Queue
+class QueueLL
 {
 private:
 	Node* Head;
 	Node* Tail;
 	void init(int value);
 public:
-	Queue();
-	Queue(int value);
-	~Queue();
+	QueueLL();
+	QueueLL(int value);
+	~QueueLL();
 	void enqueue(int value);
 	int dequeue();
 	bool empty();
