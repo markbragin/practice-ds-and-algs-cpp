@@ -232,11 +232,10 @@ void SinglyLinkedList::reverse()
 
 void SinglyLinkedList::clear()
 {
-	Node* trav = Head;
 	Node* tmp = nullptr;
-	while(trav){
-		tmp = trav;
-		trav = trav->next;
+	while(Head){
+		tmp = Head;
+		Head = Head->next;
 		delete tmp;
 	}
 	Head = Tail = nullptr;
