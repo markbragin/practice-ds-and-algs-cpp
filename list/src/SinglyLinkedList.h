@@ -15,11 +15,11 @@ private:
 public:
 	SinglyLinkedList();
 	SinglyLinkedList(int value);
+	~SinglyLinkedList();
 	int getSize();
 	bool isEmpty();
 	int valueAt(int index);
 	void pushFront(int value);
-	void printData();
 	int popFront();
 	void pushBack(int value);
 	int popBack();
@@ -31,4 +31,6 @@ public:
 	int valueNFromEnd(int n);
 	void removeValue(int value);
 	void reverse();
+	void clear();
+	void printData();
 };

@@ -19,6 +19,11 @@ SinglyLinkedList::SinglyLinkedList(int value) : Head{nullptr},
 	size++;
 }
 
+SinglyLinkedList::~SinglyLinkedList()
+{
+	clear();
+}
+
 int SinglyLinkedList::getSize()
 {
 	return size;
@@ -223,6 +228,19 @@ void SinglyLinkedList::reverse()
 	}
 	Tail = Head;
 	Head = prev;
+}
+
+void SinglyLinkedList::clear()
+{
+	Node* trav = Head;
+	Node* tmp = nullptr;
+	while(trav){
+		tmp = trav;
+		trav = trav->next;
+		delete tmp;
+	}
+	Head = Tail = nullptr;
+	size = 0;
 }
 
 void SinglyLinkedList::printData()

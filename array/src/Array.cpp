@@ -11,6 +11,11 @@ Array::Array(int capacity)
 	data = new int[capacity]{};
 }
 
+Array::~Array()
+{
+	clear();
+}
+
 int Array::getSize()
 {
 	return this->size;
@@ -106,6 +111,11 @@ int Array::find(int value)
 		if(*(this->data + i) == value)
 			return i;
 	return -1;
+}
+
+void Array::clear()
+{
+	delete data;
 }
 
 void Array::printInfo()

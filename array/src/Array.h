@@ -10,6 +10,7 @@ private:
 	bool isValidIndex(int index);
 public:
 	Array(int capacity = BASIC_ARRAY_CAPACITY);
+	~Array();
 	int getSize();
 	int getCapacity();
 	bool isEmpty();
@@ -21,6 +22,7 @@ public:
 	int pop();
 	int find(int value);
 	void deletee(int index);
+	void clear();
 	void printInfo();
 	void printData();
 };
