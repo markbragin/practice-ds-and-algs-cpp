@@ -144,7 +144,7 @@ void MaxHeap::remove(int idx)
 
 void buildMaxHeap(int* array, int len)
 {
-	for(int i = len/2 - 1; i >= 0; i--)
+	for(int i = getParentIdx(len - 1); i >= 0; i--)
 		heapify(array, len, i);
 }
 
@@ -168,8 +168,7 @@ void heapify(int* array, int len, int idx)
 void heapSort(int* array, int len)
 {
 	buildMaxHeap(array, len);
-	while(len){
-		len--;
+	while(len--){
 		swap(&array[0], &array[len]);
 		heapify(array, len, 0);
 	}

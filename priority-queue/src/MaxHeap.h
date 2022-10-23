@@ -36,4 +36,5 @@ int getRightChildIdx(int idx);
 void buildMaxHeap(int* array, int len);
 void heapify(int* array, int len, int idx);
 void heapSort(int* array, int len);
+
 #endif

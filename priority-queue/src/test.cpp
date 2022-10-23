@@ -65,7 +65,7 @@ void testSifts()
 			pq.pop();
 		}
 	}
-	std::cout << "[Heapify test] PASSED" << std::endl;
+	std::cout << "[Sifts test] PASSED" << std::endl;
 }
 
 void interactive()
