@@ -9,10 +9,9 @@ MaxHeap::MaxHeap() : data{nullptr}, capacity{HEAP_BASIC_SIZE}, size{0}
 	data = new int[capacity];
 }
 
-MaxHeap::MaxHeap(int cap) : data{nullptr}, capacity{HEAP_BASIC_SIZE},
+MaxHeap::MaxHeap(int cap) : data{nullptr}, capacity{cap},
 	size{0}
 {
-	capacity = cap;
 	data = new int[capacity];
 }
 

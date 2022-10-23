@@ -15,7 +15,7 @@ private:
 	void siftDown(int idx);
 public:
 	MaxHeap();
-	MaxHeap(int capacity);
+	MaxHeap(int cap);
 	~MaxHeap();
 	void printData();
 	void clear();
