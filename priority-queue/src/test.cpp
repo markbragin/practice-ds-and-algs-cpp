@@ -5,19 +5,80 @@
 #include <cassert>
 
 #include "MaxHeap.h"
+#include "PriorityQueue.h"
 
 void testBuildMaxHeap();
+void testPriorityQueue();
 void testHeapSort();
-void testSifts();
+void testHeap();
 void interactive();
 
 
 int main()
 {
+	testHeap();
+	testPriorityQueue();
 	testHeapSort();
-	testSifts();
 	/* interactive(); */
 	return 0;
+}
+
+void testHeap()
+{
+	std::random_device rd;
+	std::mt19937 rng(rd());
+	std::uniform_int_distribution<std::mt19937::result_type> range(100, 1000);
+
+	for(int i = 0; i < 100; i++)
+	{
+		MaxHeap heap;
+		std::priority_queue<int> pq;
+		int heapSize = range(rng);
+
+		for(int j = 0; j < heapSize; j++){
+			int value = range(rng);
+			heap.push(value);
+			pq.push(value);
+			assert(heap.top() == pq.top());
+		}
+
+		for(int j = 0; j < heapSize; j++){
+			assert(heap.pop() == pq.top());
+			pq.pop();
+			assert(heap.isEmpty() == pq.empty());
+			assert(heap.getSize() == static_cast<int>(pq.size()));
+		}
+	}
+	std::cout << "[Heap test] PASSED" << std::endl;
+}
+
+void testPriorityQueue()
+{
+	std::random_device rd;
+	std::mt19937 rng(rd());
+	std::uniform_int_distribution<std::mt19937::result_type> range(100, 1000);
+
+	for(int i = 0; i < 100; i++)
+	{
+		PriorityQueue myPq;
+		std::priority_queue<int> pq;
+		int pqSize = range(rng);
+
+		for(int j = 0; j < pqSize; j++){
+			int value = range(rng);
+			myPq.push(value);
+			pq.push(value);
+			assert(myPq.top() == pq.top());
+		}
+
+		for(int j = 0; j < pqSize; j++){
+			assert(myPq.pop() == pq.top());
+			pq.pop();
+			assert(myPq.isEmpty() == pq.empty());
+			assert(myPq.getSize() == static_cast<int>(pq.size()));
+		}
+	}
+	std::cout << "[PriorityQueue test] PASSED" << std::endl;
 }
 
 void testHeapSort()
@@ -40,32 +101,6 @@ void testHeapSort()
 			assert(array1[j] == array2[j]);
 	}
 	std::cout << "[HeapSort test] PASSED" << std::endl;
-}
-
-void testSifts()
-{
-	std::random_device rd;
-	std::mt19937 rng(rd());
-	std::uniform_int_distribution<std::mt19937::result_type> range(100, 1000);
-
-	for(int i = 0; i < 100; i++)
-	{
-		MaxHeap heap;
-		std::priority_queue<int> pq;
-		int heapSize = range(rng);
-
-		for(int j = 0; j < heapSize; j++){
-			int value = range(rng);
-			heap.push(value);
-			pq.push(value);
-		}
-
-		for(int j = 0; j < heapSize; j++){
-			assert(heap.pop() == pq.top());
-			pq.pop();
-		}
-	}
-	std::cout << "[Sifts test] PASSED" << std::endl;
 }
 
 void interactive()
